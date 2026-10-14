@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Academy - Pelatihan & Pendaftaran</title>
+    <!-- Menghubungkan ke file CSS eksternal -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header & Navigasi -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="brand">
+                <h1>Coding Academy</h1>
+                <span>Pusat Pelatihan Pemrograman & Teknologi</span>
+            </div>
+            <nav class="nav-links">
+                <button id="btn-gallery" class="nav-btn active" onclick="tampilkanHalaman('gallery')">
+                    Gallery Kegiatan
+                </button>
+                <button id="btn-pendaftaran" class="nav-btn" onclick="tampilkanHalaman('pendaftaran')">
+                    Form Pendaftaran
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Konten Utama -->
+    <main class="container main-content">
+
+        <!-- ================= TAMPILAN 1: GALLERY KEGIATAN ================= -->
+        <section id="halaman-gallery" class="halaman aktif">
+            <div class="section-header">
+                <h2>Gallery Kegiatan Pelatihan</h2>
+                <p>Dokumentasi berbagai aktivitas kelas, workshop, dan pelatihan yang dilaksanakan di Coding Academy.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- Item Gallery 1 -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" alt="Web Development">
+                    <div class="card-body">
+                        <span class="badge">Web Development</span>
+                        <h3>Pelatihan Dasar HTML, CSS & JavaScript</h3>
+                        <p>Kegiatan praktik langsung pembuatan website statis dan responsif bersama instruktur bagi peserta tingkat pemula.</p>
+                    </div>
+                </div>
+
+                <!-- Item Gallery 2 -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt=" Kerja Kelompok">
+                    <div class="card-body">
+                        <span class="badge">Bootcamp</span>
+                        <h3>Diskusi & Pembuatan Proyek Akhir Tim</h3>
+                        <p>Para peserta berkolaborasi dalam tim untuk merancang dan mempresentasikan aplikasi berbasis web.</p>
+                    </div>
+                </div>
+
+                <!-- Item Gallery 3 -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=600&q=80" alt="Backend Programming">
+                    <div class="card-body">
+                        <span class="badge">Software Engineering</span>
+                        <h3>Workshop Algoritma & Pemrograman</h3>
+                        <p>Sesi pendalaman logika pemrograman, struktur data, dan studi kasus pemecahan masalah menggunakan bahasa Python dan Java.</p>
+                    </div>
+                </div>
+
+                <!-- Item Gallery 4 -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="Mentoring">
+                    <div class="card-body">
+                        <span class="badge">Mentoring</span>
+                        <h3>Sesi Evaluasi & Code Review</h3>
+                        <p>Pendampingan satu per satu antara mentor dan peserta untuk memeriksa struktur kode serta perbaikan bug aplikasi.</p>
+                    </div>
+                </div>
+
+                <!-- Item Gallery 5 -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Database">
+                    <div class="card-body">
+                        <span class="badge">Database</span>
+                        <h3>Pelatihan Perancangan Basis Data SQL</h3>
+                        <p>Materi pembuatan relasi tabel (ERD) dan pengelolaan query database menggunakan MySQL dan MariaDB.</p>
+                    </div>
+                </div>
+
+                <!-- Item Gallery 6 -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=600&q=80" alt="Seminar">
+                    <div class="card-body">
+                        <span class="badge">Seminar Karir</span>
+                        <h3>Pengenalan Industri Teknologi Informasi</h3>
+                        <p>Seminar persiapan karir dan pembekalan portofolio bagi peserta yang telah menyelesaikan program pelatihan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TAMPILAN 2: PENDAFTARAN ================= -->
+        <section id="halaman-pendaftaran" class="halaman">
+            <div class="section-header">
+                <h2>Formulir Pendaftaran Peserta</h2>
+                <p>Silakan lengkapi data diri Anda pada form di bawah ini dengan benar.</p>
+            </div>
+
+            <div class="pendaftaran-layout">
+                <!-- Kolom Kiri: Form Input -->
+                <div class="form-box">
+                    <h3>Input Data Pendaftar</h3>
+                    <form id="formPendaftaran" onsubmit="prosesSimpan(event)">
+                        
+                        <div class="form-group">
+                            <label for="nik">NIK (Nomor Induk Kependudukan) <span class="wajib">*</span></label>
+                            <input type="text" id="nik" name="nik" maxlength="16" placeholder="Masukkan 16 digit NIK" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nama">Nama Lengkap <span class="wajib">*</span></label>
+                            <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Jenis Kelamin <span class="wajib">*</span></label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="jk" value="Laki-laki" required> Laki-laki
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="jk" value="Perempuan"> Perempuan
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nohp">No. HP / WhatsApp <span class="wajib">*</span></label>
+                            <input type="tel" id="nohp" name="nohp" placeholder="Contoh: 081234567890" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="alamat">Alamat Lengkap <span class="wajib">*</span></label>
+                            <textarea id="alamat" name="alamat" rows="3" placeholder="Masukkan alamat lengkap domisili" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bahasa">Pilihan Bahasa Pemrograman yang Diminati <span class="wajib">*</span></label>
+                            <select id="bahasa" name="bahasa" required>
+                                <option value="">-- Pilih Bahasa Pemrograman --</option>
+                                <option value="Python">Python</option>
+                                <option value="JavaScript">JavaScript</option>
+                                <option value="PHP">PHP</option>
+                                <option value="Java">Java</option>
+                                <option value="C++">C++</option>
+                                <option value="Golang">Golang</option>
+                            </select>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-submit">Simpan Pendaftaran</button>
+                            <button type="reset" class="btn-reset" onclick="resetHasil()">Reset Form</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Kolom Kanan: Hasil Inputan -->
+                <div class="hasil-box">
+                    <h3>Data Hasil Pendaftaran</h3>
+                    
+                    <!-- Tampilan sebelum ada data disimpan -->
+                    <div id="pesan-kosong" class="pesan-kosong">
+                        <p>Belum ada data yang disimpan. Silakan isi formulir di samping lalu klik tombol <b>Simpan Pendaftaran</b>.</p>
+                    </div>
+
+                    <!-- Tampilan setelah pilih "Ya" pada confirm -->
+                    <div id="tampilan-hasil" class="tampilan-hasil tersembunyi">
+                        <div class="alert-sukses">
+                            Data pendaftaran berhasil disimpan!
+                        </div>
+                        <table class="tabel-hasil">
+                            <tr>
+                                <th>NIK</th>
+                                <td id="hasil-nik">-</td>
+                            </tr>
+                            <tr>
+                                <th>Nama Lengkap</th>
+                                <td id="hasil-nama">-</td>
+                            </tr>
+                            <tr>
+                                <th>Jenis Kelamin</th>
+                                <td id="hasil-jk">-</td>
+                            </tr>
+                            <tr>
+                                <th>No. HP</th>
+                                <td id="hasil-nohp">-</td>
+                            </tr>
+                            <tr>
+                                <th>Alamat</th>
+                                <td id="hasil-alamat">-</td>
+                            </tr>
+                            <tr>
+                                <th>Bahasa Pemrograman</th>
+                                <td><span id="hasil-bahasa" class="badge-hasil">-</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Coding Academy. Seluruh Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- Menghubungkan ke file JavaScript eksternal -->
+    <script src="script.js"></script>
+</body>
+</html>
